@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+ <script src="scripts/script.js"></script>
+<script src="controller/CreateController.js"></script>
+<script src="controller/DeleteController.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<title>
+Movie Dictionary
+</title>
+<body ng-app="myApp">
+<div id="fixedheader">Movie Dictionary</div>
+ <span class="navigationSpan"><a href="#!create">Home</a> | <a href="#!delete">Delete</a></span>
+<div>
+  <div ng-view></div>
+
+</div>
+	
+<div id="fixedfooter"></div>
+</body>
+</html>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAzhdks667kIBSDTNQhip27so5DEWJ4YzA",
+    authDomain: "angularjsassignment.firebaseapp.com",
+    databaseURL: "https://angularjsassignment.firebaseio.com",
+    projectId: "angularjsassignment",
+    storageBucket: "angularjsassignment.appspot.com",
+    messagingSenderId: "620332083792"
+  };
+  firebase.initializeApp(config);
+</script>
+
+

@@ -1,0 +1,39 @@
+<form ng-submit="submit()">
+<table>
+<tr>
+	<td>
+	Movie Name:
+	</td>
+	<td>
+	<input type="text" ng-model="formData.movieName" autofocus/>
+	</td>
+</tr>
+<tr>
+	<td>
+	Character Name:
+	</td>
+	<td>
+	<input type="text" ng-model="formData.characterName"/>
+	</td>
+</tr>
+<tr>
+	<td>
+	Vote Count:
+	</td>
+	<td>
+	<input type="text" ng-model="formData.voteCount"/>
+	</td>
+</tr>
+<tr>
+	<td>
+	Average Rating
+	</td>
+	<td>
+	<input type="text" ng-model="formData.averageRating"/>
+	</td>
+</tr>
+<tr>
+<td><button class="add_btn" type="submit">Add</button></td>
+</tr>
+</table>
+</form>
