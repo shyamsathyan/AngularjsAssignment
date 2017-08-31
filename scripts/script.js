@@ -1,13 +1,13 @@
 var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider,$locationProvider) {
     $routeProvider
-    .when("/create", {
-        templateUrl : "html/create.html",
-		controller:'createCtrl'
+    .when("/list", {
+        templateUrl : "html/list.html",
+		controller:'homeCtrl'
     })
-    .when("/delete", {
-        templateUrl : "html/delete.html",
-		controller:'deleteCtrl'
+    .when("/home", {
+        templateUrl : "index.html",
+		controller:'mainCtrl'
     })
 	
 }); 

@@ -4,18 +4,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
  <script src="scripts/script.js"></script>
-<script src="controller/CreateController.js"></script>
+<script src="controller/HomeController.js"></script>
 <script src="controller/DeleteController.js"></script>
+<script src="service/MovieService.js"></script>
   <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <title>
 Movie Dictionary
 </title>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="mainCtrl">
 <div id="fixedheader">Movie Dictionary</div>
- <span class="navigationSpan"><a href="#!create">Home</a> | <a href="#!delete">Delete</a></span>
+ <span class="navigationSpan"><a href="#!list">Find List</a><a href="#!delete"></a></span>
 <div>
+<img src="./images/camera.png"/>
   <div ng-view></div>
 
 </div>
@@ -35,6 +38,24 @@ Movie Dictionary
     messagingSenderId: "620332083792"
   };
   firebase.initializeApp(config);
+</script>
+<script>
+var app = angular.module("myApp");
+
+app.controller('mainCtrl',function($scope,$http,$window,$timeout,movieService){
+onInit();
+function onInit(){
+$timeout(function(){
+var moviesRef = firebase.database().ref("movies");
+moviesRef.on("value", function(movie) {
+	console.log(movie.val());
+   movieService.setResponse(movie.val());
+}, function (error) {
+   console.log("Error: " + error.code);
+});	
+},2000);	
+}
+});
 </script>
 
 
